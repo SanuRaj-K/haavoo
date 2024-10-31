@@ -10,6 +10,15 @@ import menu from "../assets/icons/menu.svg";
 import flavour1 from "../assets/images/flavours/bluberry.svg";
 import flavour2 from "../assets/images/flavours/rasberry.svg";
 import flavour3 from "../assets/images/flavours/blackberry.svg";
+import insta1 from "../assets/images/instagram-community/insta-1.svg";
+import insta2 from "../assets/images/instagram-community/insta-2.svg";
+import insta3 from "../assets/images/instagram-community/insta-3.svg";
+import insta4 from "../assets/images/instagram-community/insta-4.svg";
+import insta5 from "../assets/images/instagram-community/insta-5.svg";
+import whatsapp from "../assets/icons/social-media/whatsapp.svg";
+import linkedin from "../assets/icons/social-media/linkedin.svg";
+import insta from "../assets/icons/social-media/insta.svg";
+import facebook from "../assets/icons/social-media/facebook.svg";
 
 export const sliderData = [
   {
@@ -57,6 +66,33 @@ export const flavoursMenu = [
     image: flavour2,
     title: "Raspberry",
     desc: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laboriosam dignissimos aut",
+  },
+];
+
+export const communityData = [
+  { path: "", image: insta1 },
+  { path: "", image: insta2 },
+  { path: "", image: insta3 },
+  { path: "", image: insta4 },
+  { path: "", image: insta5 },
+];
+
+export const socialMedia = [
+  {
+    path: "",
+    icon: whatsapp,
+  },
+  {
+    path: "",
+    icon: linkedin,
+  },
+  {
+    path: "",
+    icon: insta,
+  },
+  {
+    path: "",
+    icon: facebook,
   },
 ];
 

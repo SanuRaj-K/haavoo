@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { cart, flavoursMenu, logo, menu, sliderData } from "../../constants";
+import {
+  cart,
+  communityData,
+  flavoursMenu,
+  logo,
+  menu,
+  sliderData,
+} from "../../constants";
 import FlavoursComp from "../../components/flavours";
 import { motion } from "framer-motion";
+import Review from "../../components/review";
+import Community from "../../components/community";
+import Footer from "../../components/footer";
 
 const HomePage = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
@@ -22,7 +32,7 @@ const HomePage = () => {
   const scrollAmount = 300; // Adjust the scroll amount as needed
 
   const listRef = React.useRef(null);
-  const reviewArr=[1,2,3]
+  const reviewArr = [1, 2, 3];
 
   return (
     <div>
@@ -105,10 +115,55 @@ const HomePage = () => {
           </motion.ul>
         </div>
       </section>
-      <section>
-        <ul>
-          {/* {reviewArr?.map((item,index))} */}
+      <section className=" my-20">
+        <div>
+          <h1 className=" text-[32px] font-semibold text-center">
+            Rating and Reviews
+          </h1>
+        </div>
+        <ul className=" mt-5 grid grid-cols-3 place-items-center ">
+          {reviewArr?.map((item, index) => (
+            <li>
+              <Review />
+            </li>
+          ))}
         </ul>
+        <ul className=" flex my-10 items-center justify-center">
+          {reviewArr?.map((item, index) => (
+            <li
+              className=" size-2 cursor-pointer rounded-full  mx-3 bg-[#8D8D8D]"
+              key={index}
+            >
+              {" "}
+            </li>
+          ))}
+        </ul>
+        <div className=" my-5 flex justify-center items-center">
+          <div className="px-4 py-1 mt-3  transition-all duration-100   border-[1px] cursor-pointer border-black rounded-md inline-block text-black text-[18px]">
+            <div>Write a Review</div>
+          </div>
+        </div>
+      </section>
+      <section className=" py-20">
+        <div>
+          <div>
+            <h1 className=" font-openSans text-[32px] font-semibold  text-center">
+              Instagram Community
+            </h1>
+          </div>
+          <div>
+            <ul className=" flex justify-between mt-10">
+              {communityData?.map((item, index) => (
+                <li className=" mx-5" key={index}>
+                  <Community image={item.image} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section>
+        <Footer />
       </section>
     </div>
   );
