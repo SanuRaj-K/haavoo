@@ -13,15 +13,15 @@ function App() {
   }, []);
   return (
     <div className="App">
-      {/* {isLoading ? (
+      {isLoading ? (
         <>
           <Loading />
         </>
-      ) : ( */}
+      ) : (
         <>
           <HomePage />
         </>
-      {/* )} */}
+      )}
     </div>
   );
 }
