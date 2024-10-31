@@ -17,7 +17,7 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const HomePage = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
- 
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeout(() => {
@@ -42,6 +42,8 @@ const HomePage = () => {
     }
   };
 
+   
+ 
   return (
     <div>
       <div className="  w-full fixed top-0 ">
@@ -96,7 +98,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="   w-full p-5 flex justify-between items-center absolute top-0">
+          <div className="      w-full p-5 flex justify-between items-center absolute top-0">
             <div className=" cursor-pointer">
               <img src={logo} alt="logo" />
             </div>
@@ -140,7 +142,7 @@ const HomePage = () => {
           <div className="relative flex items-center">
             <motion.ul
               ref={scrollRef}
-              className="  flex   items-center justify-center sm:justify-start bg-[#F8F8F8] py-20  md:space-x-10   overflow-x-auto scrollbar-hide  "
+              className="  flex   scroll-bar  items-center justify-center sm:justify-start bg-[#F8F8F8] py-20  md:space-x-10   overflow-x-auto scrollbar-hide  "
             >
               {flavoursMenu?.map((item, index) => (
                 <li className=" " key={index}>
