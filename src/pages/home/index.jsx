@@ -88,13 +88,13 @@ const HomePage = () => {
         </div>
       </section>
       <section>
-        <ul className=" flex justify-evenly bg-[#dcd7d7] py-20 overflow-x-auto ">
+        {/* <ul className=" flex justify-evenly bg-[#dcd7d7] py-20 overflow-x-auto ">
           {flavoursMenu?.map((item, index) => (
             <li className=" mx-10" key={index}>
               <FlavoursComp  image={item.image} title={item.title} desc={item.desc}  />
             </li>
           ))}
-        </ul>
+        </ul> */}
         <div className="relative flex items-center">
  
            <motion.ul
