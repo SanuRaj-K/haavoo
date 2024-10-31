@@ -31,7 +31,7 @@ export const sliderData = [
     cupImage: rasberryCup,
     fruitImage: rasberry,
     backgroud: "#E75E8A",
-    title: "raspperry",
+    title: "raspberry",
   },
   {
     cupImage: blackberryCup,
