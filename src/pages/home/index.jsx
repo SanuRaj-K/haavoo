@@ -90,7 +90,7 @@ const HomePage = () => {
               />
 
               {/* Order Now Button */}
-              <div className="px-8 py-1 hover:bg-[#7C4995] hover:border-black transition-all duration-100 mt-12 border-[1px] cursor-pointer border-white rounded-md inline-block text-white text-[16px] md:text-[20px]">
+              <div className="md:px-2 px-3  text-center w-[110px]  md:w-full py-1 hover:bg-[#7C4995] hover:border-black transition-all duration-100 mt-12 border-[1px] cursor-pointer border-white rounded-md inline-block text-white text-[16px] md:text-[20px]">
                 <div>Order Now</div>
               </div>
             </div>
@@ -140,7 +140,7 @@ const HomePage = () => {
           <div className="relative flex items-center">
             <motion.ul
               ref={scrollRef}
-              className="  flex   items-center justify-center bg-[#F8F8F8] py-20  md:space-x-10   overflow-x-auto scrollbar-hide  "
+              className="  flex   items-center justify-center sm:justify-start bg-[#F8F8F8] py-20  md:space-x-10   overflow-x-auto scrollbar-hide  "
             >
               {flavoursMenu?.map((item, index) => (
                 <li className=" " key={index}>

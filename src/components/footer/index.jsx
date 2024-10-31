@@ -15,15 +15,15 @@ const Footer = () => {
               <img className="  size-10 cursor-pointer" src={fssai} alt="" />
               <span className=" hidden xl:block ml-5">|</span>
             </li>
-            <li className="  md:ml-10 sm:mx-3 hover:underline flex items-center  cursor-pointer">
+            <li className="  md:ml-10 mt-1 md:mt0 sm:mx-3 hover:underline flex items-center  cursor-pointer">
               Privacy Policy
               <span className="  hidden xl:block ml-5">|</span>
             </li>
-            <li className="  flex items-center  md:ml-10 hover:underline cursor-pointer">
+            <li className="  flex items-center  mt-1 md:mt0 md:ml-10 hover:underline cursor-pointer">
               Terms and Conditions
               <span className="  hidden xl:block ml-5">|</span>
             </li>
-            <li className="  sm:ml-3  md:ml-10 hover:underline cursor-pointer">
+            <li className="  mt-1 md:mt0 sm:ml-3  md:ml-10 hover:underline cursor-pointer">
               Products
             </li>
           </ul>
