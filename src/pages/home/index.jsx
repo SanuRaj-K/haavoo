@@ -17,7 +17,7 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const HomePage = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
-
+ 
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeout(() => {
@@ -34,7 +34,7 @@ const HomePage = () => {
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = 300;
+      const scrollAmount = 400;
       scrollRef.current.scrollBy({
         left: direction === "right" ? scrollAmount : -scrollAmount,
         behavior: "smooth",
@@ -44,7 +44,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <div className=" h-screen w-full fixed top-0 ">
+      <div className="  w-full fixed top-0 ">
         <section
           className=" h-[500px] md:h-[800px]    w-full relative overflow-hidden"
           style={{ backgroundColor: currentSlide.backgroud }}
@@ -90,7 +90,7 @@ const HomePage = () => {
               />
 
               {/* Order Now Button */}
-              <div className="px-8 py-1 hover:bg-black transition-all duration-100 mt-12 border-[1px] cursor-pointer border-white rounded-md inline-block text-white text-[16px] md:text-[20px]">
+              <div className="px-8 py-1 hover:bg-[#7C4995] hover:border-black transition-all duration-100 mt-12 border-[1px] cursor-pointer border-white rounded-md inline-block text-white text-[16px] md:text-[20px]">
                 <div>Order Now</div>
               </div>
             </div>
@@ -135,15 +135,15 @@ const HomePage = () => {
           </div>
         </section>
       </div>
-      <div className=" bg-white mt-[800px]  w-full relative  z-40">
+      <div className=" bg-white  mt-[500px] sm:mt-[500px] md:mt-[800px]  w-full relative  z-40">
         <section>
           <div className="relative flex items-center">
             <motion.ul
               ref={scrollRef}
-              className=" flex justify-evenly items-center bg-[#F8F8F8] py-20  space-x-5  overflow-x-auto scrollbar-hide "
+              className="  flex   items-center justify-center bg-[#F8F8F8] py-20  md:space-x-10   overflow-x-auto scrollbar-hide  "
             >
               {flavoursMenu?.map((item, index) => (
-                <li className=" px-5" key={index}>
+                <li className=" " key={index}>
                   <FlavoursComp
                     image={item.image}
                     title={item.title}
@@ -199,12 +199,12 @@ const HomePage = () => {
             ))}
           </ul>
           <div className=" my-5 flex justify-center items-center">
-            <div className="px-4 py-1 mt-3  transition-all duration-100   border-[1px] cursor-pointer border-black rounded-md inline-block text-black text-[18px]">
+            <div className="px-4 py-1 mt-3 hover:bg-[#7C4995]  hover:text-white  transition-all duration-300   border-[1px] cursor-pointer border-black rounded-md inline-block text-black text-[18px]">
               <div>Write a Review</div>
             </div>
           </div>
         </section>
-        <section className=" my-10 md:my-20">
+        <section className=" my-10 px-3 md:my-20">
           <div>
             <div>
               <h1 className=" font-openSans text-[24px]   md:text-[32px] font-semibold  text-center">
