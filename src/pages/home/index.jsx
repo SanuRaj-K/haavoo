@@ -44,7 +44,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <div className=" w-full fixed top-0 ">
+      <div className=" h-screen w-full fixed top-0 ">
         <section
           className=" h-[500px] md:h-[800px]    w-full relative overflow-hidden"
           style={{ backgroundColor: currentSlide.backgroud }}
@@ -212,21 +212,26 @@ const HomePage = () => {
               </h1>
             </div>
             <div>
-              <ul className=" grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 lg:px-5 gap-5  place-items-center   mt-10">
+              <motion.ul
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: true }}
+                className=" grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 lg:px-5 gap-5  place-items-center   mt-10"
+              >
                 {communityData?.map((item, index) => (
                   <li className=" mx-5" key={index}>
                     <Community image={item.image} />
                   </li>
                 ))}
-              </ul>
+              </motion.ul>
             </div>
           </div>
         </section>
         <section>
-        <Footer />
-      </section>
+          <Footer />
+        </section>
       </div>
-      
     </div>
   );
 };

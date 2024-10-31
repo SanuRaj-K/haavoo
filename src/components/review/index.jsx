@@ -4,7 +4,7 @@ import person from "../../assets/images/review/person.svg";
 
 const Review = () => {
   return (
-    <div className=" bg-[#FAFAFA] font-openSans  rounded-sm w-full md:w-[360px] p-5 shadow-xl">
+    <div className=" bg-[#FAFAFA] font-openSans  rounded-lg w-full md:w-[360px] p-5 shadow-xl">
       <div className=" flex items-center justify-between">
         <img src={star} alt="star" />
         <span className=" text-[12px]">10th Nov 2024</span>
