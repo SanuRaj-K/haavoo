@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { cart, logo, menu, sliderData } from "../../constants";
+import { cart, flavoursMenu, logo, menu, sliderData } from "../../constants";
 import FlavoursComp from "../../components/flavours";
-
+import { motion } from "framer-motion";
 
 const HomePage = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
@@ -19,6 +19,10 @@ const HomePage = () => {
   }, [sliderIndex]);
 
   const currentSlide = sliderData[sliderIndex];
+  const scrollAmount = 300; // Adjust the scroll amount as needed
+
+  const listRef = React.useRef(null);
+  const reviewArr=[1,2,3]
 
   return (
     <div>
@@ -27,7 +31,7 @@ const HomePage = () => {
         style={{ backgroundColor: currentSlide.backgroud }}
       >
         <div className="relative mt-10 font-openSans p-3"> */}
-          {/* <div className="flex justify-center items-center h-screen">
+      {/* <div className="flex justify-center items-center h-screen">
             <h1
               className={`text-[200px] capitalize font-semibold text-white transition-opacity duration-500 ${
                 fade ? "opacity-100" : "opacity-0"
@@ -53,7 +57,7 @@ const HomePage = () => {
               <div>Order Now</div>
             </div>
           </div> */}
-        {/* </div>
+      {/* </div>
 
         <div className=" w-full p-5 flex justify-between items-center absolute top-0">
           <div className=" cursor-pointer">
@@ -74,7 +78,37 @@ const HomePage = () => {
         </div>
       </section> */}
       <section>
-        <FlavoursComp/>
+        {/* <ul className=" flex justify-evenly bg-[#dcd7d7] py-20 overflow-x-auto ">
+          {flavoursMenu?.map((item, index) => (
+            <li className=" mx-10" key={index}>
+              <FlavoursComp  image={item.image} title={item.title} desc={item.desc}  />
+            </li>
+          ))}
+        </ul> */}
+        <div className="relative flex items-center">
+          {/* Left Scroll Button */}
+
+          {/* Carousel List */}
+          <motion.ul
+            ref={listRef}
+            className="flex justify-evenly bg-[#dcd7d7] py-20 space-x-10 overflow-x-auto scrollbar-hide"
+          >
+            {flavoursMenu?.map((item, index) => (
+              <li className=" px-5" key={index}>
+                <FlavoursComp
+                  image={item.image}
+                  title={item.title}
+                  desc={item.desc}
+                />
+              </li>
+            ))}
+          </motion.ul>
+        </div>
+      </section>
+      <section>
+        <ul>
+          {/* {reviewArr?.map((item,index))} */}
+        </ul>
       </section>
     </div>
   );

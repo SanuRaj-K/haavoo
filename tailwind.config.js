@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        openSans: ["Opensans", "snas-serif"], 
+        openSans: ["'Open Sans'", "sans-serif"],
+        oleo: ["'Oleo Script Swash Caps'", "cursive"],
       },
     },
   },
