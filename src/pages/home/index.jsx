@@ -99,7 +99,7 @@ const HomePage = () => {
  
            <motion.ul
             ref={listRef}
-            className="flex justify-evenly bg-[#dcd7d7] py-20 space-x-10 overflow-x-auto scrollbar-hide"
+            className="flex justify-evenly bg-[#F8F8F8] py-20 space-x-10 overflow-x-auto scrollbar-hide"
           >
             {flavoursMenu?.map((item, index) => (
               <li className=" px-5" key={index}>
@@ -119,7 +119,7 @@ const HomePage = () => {
             Rating and Reviews
           </h1>
         </div>
-        <ul className=" mt-5 grid grid-cols-3 place-items-center ">
+        <ul className=" mt-5 grid grid-cols-3 my-10 place-items-center ">
           {reviewArr?.map((item, index) => (
             <li>
               <Review />
