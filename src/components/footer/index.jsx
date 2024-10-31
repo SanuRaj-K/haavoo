@@ -5,28 +5,28 @@ import { socialMedia } from "../../constants";
 const Footer = () => {
   return (
     <div className=" px-10">
-      <div className=" h-[1px] w-full bg-black"></div>{" "}
-      <div className=" py-10 flex items-center justify-between">
+      <div className=" h-[1px]  w-full bg-black"></div>{" "}
+      <div className=" py-10 text-[12px] md:text-[16px] flex  flex-col  lg:flex-row items-center justify-between">
         <div>
-          <ul className=" flex font-medium items-center">
-            <li className="   flex items-center">
+          <ul className=" flex  flex-col sm:flex-row  font-medium sm:items-center">
+            <li className="   flex flex-col sm:flex-row   sm:items-center">
               <span>Manufactured & Packed By: More Orgo Private Limited</span>
-              <img className="  cursor-pointer" src={fssai} alt="" />
-              <span className=" ml-5">|</span>
+              <img className="  size-10 cursor-pointer" src={fssai} alt="" />
+              <span className=" hidden xl:block ml-5">|</span>
             </li>
-            <li className=" ml-10 hover:underline  cursor-pointer">
+            <li className="  md:ml-10 sm:mx-3 hover:underline flex items-center  cursor-pointer">
               Privacy Policy
-              <span className=" ml-5">|</span>
+              <span className="  hidden xl:block ml-5">|</span>
             </li>
-            <li className=" ml-10 hover:underline cursor-pointer">
+            <li className="  flex items-center  md:ml-10 hover:underline cursor-pointer">
               Terms and Conditions
-              <span className=" ml-5">|</span>
+              <span className="  hidden xl:block ml-5">|</span>
             </li>
-            <li className=" ml-10 hover:underline cursor-pointer">Products</li>
+            <li className="  sm:ml-3  md:ml-10 hover:underline cursor-pointer">Products</li>
           </ul>
         </div>
         <div>
-          <ul className=" flex items-center justify-between">
+          <ul className=" mt-8 lg:mt-0 flex items-center justify-between">
             {socialMedia?.map((item, index) => (
               <li key={index}>
                 <img
