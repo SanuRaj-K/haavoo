@@ -36,12 +36,12 @@ const HomePage = () => {
 
   return (
     <div>
-      {/* <section
+      <section
         className="h-screen w-full relative overflow-hidden"
         style={{ backgroundColor: currentSlide.backgroud }}
       >
-        <div className="relative mt-10 font-openSans p-3"> */}
-      {/* <div className="flex justify-center items-center h-screen">
+        <div className="relative mt-10 font-openSans p-3">
+      <div className="flex justify-center items-center h-screen">
             <h1
               className={`text-[200px] capitalize font-semibold text-white transition-opacity duration-500 ${
                 fade ? "opacity-100" : "opacity-0"
@@ -66,8 +66,8 @@ const HomePage = () => {
             <div className="px-8 py-1 hover:bg-black transition-all duration-100 mt-12 border-[1px] cursor-pointer border-white rounded-md inline-block text-white text-[20px]">
               <div>Order Now</div>
             </div>
-          </div> */}
-      {/* </div>
+          </div>
+      </div>
 
         <div className=" w-full p-5 flex justify-between items-center absolute top-0">
           <div className=" cursor-pointer">
@@ -86,20 +86,18 @@ const HomePage = () => {
             </ul>
           </div>
         </div>
-      </section> */}
+      </section>
       <section>
-        {/* <ul className=" flex justify-evenly bg-[#dcd7d7] py-20 overflow-x-auto ">
+        <ul className=" flex justify-evenly bg-[#dcd7d7] py-20 overflow-x-auto ">
           {flavoursMenu?.map((item, index) => (
             <li className=" mx-10" key={index}>
               <FlavoursComp  image={item.image} title={item.title} desc={item.desc}  />
             </li>
           ))}
-        </ul> */}
+        </ul>
         <div className="relative flex items-center">
-          {/* Left Scroll Button */}
-
-          {/* Carousel List */}
-          <motion.ul
+ 
+           <motion.ul
             ref={listRef}
             className="flex justify-evenly bg-[#dcd7d7] py-20 space-x-10 overflow-x-auto scrollbar-hide"
           >
@@ -147,12 +145,12 @@ const HomePage = () => {
       <section className=" py-20">
         <div>
           <div>
-            <h1 className=" font-openSans text-[32px] font-semibold  text-center">
+            <h1 className=" font-openSans text-[24px]   md:text-[32px] font-semibold  text-center">
               Instagram Community
             </h1>
           </div>
           <div>
-            <ul className=" flex justify-between mt-10">
+            <ul className=" grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5  place-items-center   mt-10">
               {communityData?.map((item, index) => (
                 <li className=" mx-5" key={index}>
                   <Community image={item.image} />

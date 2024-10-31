@@ -75,6 +75,12 @@ export const communityData = [
   { path: "", image: insta3 },
   { path: "", image: insta4 },
   { path: "", image: insta5 },
+  { path: "", image: insta1 },
+  { path: "", image: insta2 },
+  { path: "", image: insta3 },
+  { path: "", image: insta1 },
+  { path: "", image: insta2 },
+  { path: "", image: insta3 },
 ];
 
 export const socialMedia = [
