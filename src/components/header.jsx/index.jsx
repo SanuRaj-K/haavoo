@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { motion } from "framer-motion";
 import React from "react";
 import { cart, logo, menu } from "../../constants";
@@ -7,7 +8,10 @@ const Header = () => {
     <div>
       <div className="   w-full p-5 flex justify-between items-center z-50 relative">
         <div className=" cursor-pointer">
-          <img src={logo} alt="logo" />
+          <a href="#">
+            {" "}
+            <img src={logo} alt="logo" />
+          </a>
         </div>
         <div>
           <ul className="    flex justify-between items-center">
