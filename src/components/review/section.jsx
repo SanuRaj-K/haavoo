@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Review from ".";
 import { reviewsData } from "../../constants";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const ReviewSection = () => {
+  const [isEnd, setIsEnd] = useState(false);
+  const [isStart, setIsStart] = useState(true);
   const scrollRef = useRef(null);
 
   const scroll = (direction) => {
@@ -18,6 +20,16 @@ const ReviewSection = () => {
     }
   };
 
+  const checkScrollPosition = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setIsEnd(Math.abs(scrollWidth - clientWidth - scrollLeft) < 10);
+      setIsStart(scrollLeft === 0);
+    }
+  };
+  useEffect(() => {
+    checkScrollPosition();
+  }, []);
   return (
     <div className="relative">
       <div>
@@ -27,16 +39,18 @@ const ReviewSection = () => {
       </div>
       <div className=" my-10 md:my-0">
         {/* Arrow on the left */}
-        <motion.div
-          initial={{ y: "200px", opacity: 0 }}
-          whileInView={{ y: 0, opacity: 100 }}
-          transition={{ duration: 1 }}
-          className="cursor-pointer p-1 border-2 hover:border-[#7C4995] border-black rounded-full flex items-center absolute left-0 md:top-[200px] z-10"
-          onClick={() => scroll("left")}
-          style={{ marginLeft: "10px" }} // Adjust spacing as needed
-        >
-          <ArrowBackIosNewIcon />
-        </motion.div>
+        {!isStart && (
+          <motion.div
+            initial={{ y: "200px", opacity: 0 }}
+            whileInView={{ y: 0, opacity: 100 }}
+            transition={{ duration: 1 }}
+            className="cursor-pointer p-1 border-2 hover:border-[#7C4995]  md:bg-black/50  lg:bg-white border-black rounded-full flex items-center absolute left-0 md:top-[200px] z-10"
+            onClick={() => scroll("left")}
+            style={{ marginLeft: "10px" }} // Adjust spacing as needed
+          >
+            <ArrowBackIosNewIcon />
+          </motion.div>
+        )}
 
         <motion.ul
           initial={{ opacity: 0 }}
@@ -44,12 +58,13 @@ const ReviewSection = () => {
           transition={{ duration: 2 }}
           viewport={{ once: true }}
           ref={scrollRef} // Attach ref to the ul for scrolling
+          onScroll={checkScrollPosition}
           className="flex md:max-w-[1200px]   scroll-bar justify-between mx-auto space-x-5 overflow-x-auto scrollbar-hide py-10"
         >
           {reviewsData?.map((item, index) => (
             <li
               key={index}
-              className="w-[250px] md:w-fit mx-10 flex-shrink-0 my-5"
+              className="w-[250px] capitalize md:w-fit mx-10 flex-shrink-0 my-5"
             >
               <Review name={item.name} />
             </li>
@@ -57,16 +72,18 @@ const ReviewSection = () => {
         </motion.ul>
 
         {/* Arrow on the right */}
-        <motion.div
-          initial={{ y: -200, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 100 }}
-          transition={{ duration: 1 }}
-          className="cursor-pointer p-1 border-2 hover:border-[#7C4995] border-black rounded-full flex items-center absolute  right-0  md:top-[200px] z-10"
-          onClick={() => scroll("right")}
-          style={{ marginRight: "10px" }} // Adjust spacing as needed
-        >
-          <ArrowForwardIosIcon />
-        </motion.div>
+        {!isEnd && (
+          <motion.div
+            initial={{ y: -200, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 100 }}
+            transition={{ duration: 1 }}
+            className="cursor-pointer p-1 border-2 hover:border-[#7C4995] border-black rounded-full flex items-center absolute  right-0  md:bg-black/50  lg:bg-white  md:top-[200px] z-10"
+            onClick={() => scroll("right")}
+            style={{ marginRight: "10px" }} // Adjust spacing as needed
+          >
+            <ArrowForwardIosIcon />
+          </motion.div>
+        )}
       </div>
 
       <div className="my-5 flex justify-center items-center">
