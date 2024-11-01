@@ -4,24 +4,24 @@ import Loading from "./components/loading";
 import HomePage from "./pages/home";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  // const [isLoading, setIsLoading] = useState(true);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 2000);
+  //   return () => clearTimeout(timer);
+  // }, []);
   return (
     <div className="App">
-      {isLoading ? (
+      {/* {isLoading ? (
         <>
           <Loading />
         </>
-      ) : (
+      ) : ( */}
         <>
           <HomePage />
         </>
-      )}
+      {/* )} */}
     </div>
   );
 }

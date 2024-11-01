@@ -1,13 +1,20 @@
-import React from "react";
+ import React from "react";
 
 const FlavoursComp = ({ image, title, desc }) => {
   return (
     <div>
-      <div className=" flex flex-col   items-center    w-[400px]">
+      <div className=" flex flex-col    items-center    w-[400px]">
         <h1 className=" text-[36px] font-oleo">{title}</h1>
-        <div className=" flex flex-col  items-center">
+        <div
+          
+          className=" group flex flex-col cursor-pointer  items-center"
+        >
           {" "}
-          <img className=" w-[220px] h-[190px] p-5 my-5" src={image} alt={title} />
+          <img
+            className=" group-hover:scale-105  transition-all duration-500 w-[220px] h-[190px] p-5 my-5"
+            src={image}
+            alt={title}
+          />
           <p className="  w-[300px]  md:w-full text-center text-[#474747] text-[16px] font-openSans">
             {desc}
           </p>

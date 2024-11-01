@@ -1,23 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  cart,
-  communityData,
-  flavoursMenu,
-  logo,
-  menu,
-  sliderData,
-} from "../../constants";
-import FlavoursComp from "../../components/flavours";
+import React, { useEffect, useState } from "react";
+import { communityData, sliderData } from "../../constants";
 import { motion } from "framer-motion";
-import Review from "../../components/review";
 import Community from "../../components/community";
 import Footer from "../../components/footer";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import Header from "../../components/header.jsx";
+import ReviewSection from "../../components/review/section.jsx";
+import FlavoursSection from "../../components/flavours/section.jsx";
 
 const HomePage = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
-  
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeout(() => {
@@ -29,21 +20,6 @@ const HomePage = () => {
 
   const currentSlide = sliderData[sliderIndex];
 
-  const reviewArr = [1, 2, 3];
-  const scrollRef = useRef(null);
-
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const scrollAmount = 400;
-      scrollRef.current.scrollBy({
-        left: direction === "right" ? scrollAmount : -scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-   
- 
   return (
     <div>
       <div className="  w-full fixed top-0 ">
@@ -52,19 +28,19 @@ const HomePage = () => {
           style={{ backgroundColor: currentSlide.backgroud }}
         >
           <div className="relative mt-10 font-openSans p-3">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              className="flex justify-center items-center h-[500px] md:h-[800px]  "
-            >
-              <h1
+            <div className="flex justify-center items-center h-[500px] md:h-[800px]  ">
+              <motion.h1
+                key={currentSlide.title}
+                initial={{ opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
                 className={` text-[50px] sm:text-[100px] md:text-[150px] lg:text-[200px] capitalize font-semibold text-white transition-opacity duration-500  
                }`}
               >
                 {currentSlide.title}
-              </h1>
-            </motion.div>
+              </motion.h1>
+            </div>
             <motion.div
               key={currentSlide.fruitImage}
               initial={{ y: "100%", opacity: 0 }}
@@ -97,114 +73,16 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-
-          <div className="      w-full p-5 flex justify-between items-center absolute top-0">
-            <div className=" cursor-pointer">
-              <img src={logo} alt="logo" />
-            </div>
-            <div>
-              <ul className="    flex justify-between items-center">
-                <motion.li
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.3 }}
-                  className=" hidden sm:block   text-[18px]   cursor-pointer"
-                >
-                  Our Juices
-                </motion.li>
-                <motion.li
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.3 }}
-                  className=" text-[18px] hidden sm:block     cursor-pointer mx-5"
-                >
-                  Become Our Member
-                </motion.li>
-                <motion.li
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.3 }}
-                  className=" size-5 md:size-8 cursor-pointer"
-                >
-                  <img className=" size-5 md:size-8" src={cart} alt="cart" />
-                </motion.li>
-                <motion.li
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.3 }}
-                  className="  size-5 md:size-8 cursor-pointer ml-5"
-                >
-                  <img src={menu} alt="menu" />
-                </motion.li>
-              </ul>
-            </div>
-          </div>
         </section>
       </div>
-      <div className=" bg-white  mt-[500px] sm:mt-[500px] md:mt-[800px]  w-full relative  z-40">
+      <div className=" bg-white  mt-[500px] sm:mt-[500px] md:mt-[800px]  w-full relative  z-10">
+        {/* flavours section */}
         <section>
-          <div className="relative flex items-center">
-            <motion.ul
-              ref={scrollRef}
-              className="  flex   scroll-bar  items-center justify-center sm:justify-start bg-[#F8F8F8] py-20  md:space-x-10   overflow-x-auto scrollbar-hide  "
-            >
-              {flavoursMenu?.map((item, index) => (
-                <li className=" " key={index}>
-                  <FlavoursComp
-                    image={item.image}
-                    title={item.title}
-                    desc={item.desc}
-                  />
-                </li>
-              ))}
-            </motion.ul>
-
-            <div
-              className="cursor-pointer absolute right-0 z-10"
-              onClick={() => scroll("right")}
-            >
-              <ArrowForwardIosIcon />
-            </div>
-            <div
-              className="cursor-pointer absolute left-0 z-10"
-              onClick={() => scroll("left")}
-            >
-              <ArrowBackIosNewIcon />
-            </div>
-          </div>
+          <FlavoursSection />
         </section>
+        {/*  Review Section*/}
         <section className=" my-10 md:my-20">
-          <div>
-            <h1 className=" text-[24px] md:text-[32px] font-semibold text-center">
-              Rating and Reviews
-            </h1>
-          </div>
-          <motion.div
-            initial={{ y: "200px", opacity: 0 }}
-            whileInView={{ y: 0, opacity: 100 }}
-            transition={{ duration: 1.5 }}
-            viewport={{ once: true }}
-          >
-            <ul className=" mt-5 px-5 sm:px-7  grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 my-10 place-items-center ">
-              {reviewArr?.map((item, index) => (
-                <li key={index} className=" my-5 ">
-                  <Review />
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <ul className=" flex my-10 items-center justify-center">
-            {reviewArr?.map((item, index) => (
-              <li
-                className=" size-2 cursor-pointer rounded-full  mx-3 bg-[#8D8D8D]"
-                key={index}
-              >
-                {" "}
-              </li>
-            ))}
-          </ul>
-          <div className=" my-5 flex justify-center items-center">
-            <div className="px-4 py-1 mt-3 hover:bg-[#7C4995]  hover:text-white  transition-all duration-300   border-[1px] cursor-pointer border-black rounded-md inline-block text-black text-[18px]">
-              <div>Write a Review</div>
-            </div>
-          </div>
+          <ReviewSection />
         </section>
         <section className=" my-10 px-3 md:my-20">
           <div>
@@ -232,6 +110,9 @@ const HomePage = () => {
         </section>
         <section>
           <Footer />
+        </section>
+        <section className=" w-full     shadow-lg  fixed top-0 z-50 bg-white">
+          <Header />
         </section>
       </div>
     </div>

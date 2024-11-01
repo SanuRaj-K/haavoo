@@ -83,6 +83,39 @@ export const communityData = [
   { path: "", image: insta3 },
 ];
 
+export const reviewsData = [
+  {
+    star: 5,
+    name: "john",
+    reivew:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type andscrambled it to make a type specimen book.",
+  },
+  {
+    star: 2,
+    name: "Shiva",
+    reivew:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type andscrambled it to make a type specimen book.",
+  },
+  {
+    star: 4,
+    name: "Abrham",
+    reivew:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type andscrambled it to make a type specimen book.",
+  },
+  {
+    star: 3,
+    name: "Luis",
+    reivew:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type andscrambled it to make a type specimen book.",
+  },
+  {
+    star: 4,
+    name: "Jacky",
+    reivew:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type andscrambled it to make a type specimen book.",
+  },
+];
+
 export const socialMedia = [
   {
     path: "",
