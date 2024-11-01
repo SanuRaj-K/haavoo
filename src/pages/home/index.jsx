@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { communityData, sliderData } from "../../constants";
+import { sliderData } from "../../constants";
 import { motion } from "framer-motion";
-import Community from "../../components/community";
 import Footer from "../../components/footer";
 import Header from "../../components/header.jsx";
 import ReviewSection from "../../components/review/section.jsx";
 import FlavoursSection from "../../components/flavours/section.jsx";
+import CommunitySection from "../../components/community/section.jsx";
 
 const HomePage = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
@@ -23,7 +23,12 @@ const HomePage = () => {
   return (
     <div>
       <div className="  w-full fixed top-0 ">
-        <section
+        <motion.section
+          key={currentSlide.backgroud}
+          initial={{ x: "-100%", opacity: 0 }} // New cup enters from right
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: "-100%", opacity: 0 }} // Old cup exits to left
+          transition={{ duration: 0.5, ease: "easeInOut" }}
           className=" h-[500px] md:h-[800px]    w-full relative overflow-hidden"
           style={{ backgroundColor: currentSlide.backgroud }}
         >
@@ -61,9 +66,9 @@ const HomePage = () => {
                 key={currentSlide.cupImage}
                 src={currentSlide.cupImage}
                 alt="cup-image"
-                initial={{ x: "100%", opacity: 0 }} // New cup enters from right
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: "-100%", opacity: 0 }} // Old cup exits to left
+                initial={{ y: "-100%", opacity: 0 }} // New cup enters from right
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: "-100%", opacity: 0 }} // Old cup exits to left
                 transition={{ duration: 1, ease: "easeInOut" }}
               />
 
@@ -73,7 +78,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
       </div>
       <div className=" bg-white  mt-[500px] sm:mt-[500px] md:mt-[800px]  w-full relative  z-10">
         {/* flavours section */}
@@ -84,29 +89,9 @@ const HomePage = () => {
         <section className=" my-10 md:my-20">
           <ReviewSection />
         </section>
+        {/* Instagram Community section */}
         <section className=" my-10 px-3 md:my-20">
-          <div>
-            <div>
-              <h1 className=" font-openSans text-[24px]   md:text-[32px] font-semibold  text-center">
-                Instagram Community
-              </h1>
-            </div>
-            <div>
-              <motion.ul
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true }}
-                className=" grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 lg:px-5 gap-5  place-items-center   mt-10"
-              >
-                {communityData?.map((item, index) => (
-                  <li className=" mx-5" key={index}>
-                    <Community image={item.image} />
-                  </li>
-                ))}
-              </motion.ul>
-            </div>
-          </div>
+          <CommunitySection />
         </section>
         <section>
           <Footer />
